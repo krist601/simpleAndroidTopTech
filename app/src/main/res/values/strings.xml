@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">simpleAndroidTopTech</string>
+    <string name="app_name">Simple Android Top Tech</string>
+    <string name="view_general_reload_string">Volver a cargar</string>
+    <string name="view_general_news_no_data_string">No hay noticias</string>
+    <string name="general_image_description">Descripción</string>
+    <string name="view_general_loading_string">Cargando...</string>
 </resources>

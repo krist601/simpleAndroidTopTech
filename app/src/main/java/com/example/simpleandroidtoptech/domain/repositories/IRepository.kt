@@ -6,5 +6,5 @@ import com.example.simpleandroidtoptech.domain.entities.GeneralHeaderMemory
 
 interface IRepository {
     @Throws(Exception::class)
-    suspend fun getCharacters(): Pair<LiveDataStatus, GeneralHeaderMemory<CharacterMemory>?>
+    suspend fun getCharacters(): Pair<LiveDataStatus, GeneralHeaderMemory<List<CharacterMemory>>?>
 }

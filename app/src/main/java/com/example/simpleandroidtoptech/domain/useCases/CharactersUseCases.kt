@@ -10,7 +10,7 @@ class CharactersUseCases constructor(private val iRepository: IRepository) {
     private var job = Job()
     private var uiScope = CoroutineScope(Dispatchers.Main + job)
 
-    open fun invoke(onResult: (Pair<LiveDataStatus, GeneralHeaderMemory<CharacterMemory>?>) -> Unit, onFailure: (Exception) -> Unit) {
+    open fun invoke(page: Int, onResult: (Pair<LiveDataStatus, GeneralHeaderMemory<List<CharacterMemory>>?>) -> Unit, onFailure: (Exception) -> Unit) {
         uiScope.launch {
             try {
                 val result = withContext(Dispatchers.IO) {
