@@ -2,8 +2,9 @@ package com.example.core
 
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 
-open class BaseActivity: AppCompatActivity() {
+open class BaseFragment: Fragment() {
     protected fun onLoading(progressBar: View?, noDataLabel: View?, dataView: View?, reloadButton: View?) {
         noDataLabel?.let { it.visibility = View.GONE }
         progressBar?.let { it.visibility = View.VISIBLE }

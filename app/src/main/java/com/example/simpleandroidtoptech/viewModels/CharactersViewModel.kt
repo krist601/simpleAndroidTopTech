@@ -9,8 +9,9 @@ import com.example.simpleandroidtoptech.domain.entities.CharacterMemory
 import com.example.simpleandroidtoptech.domain.entities.GeneralHeaderMemory
 import com.example.simpleandroidtoptech.domain.useCases.CharactersUseCases
 import java.net.SocketTimeoutException
+import javax.inject.Inject
 
-class CharactersViewModel constructor(private val charactersUseCases: CharactersUseCases): ViewModel(){
+class CharactersViewModel @Inject constructor(private val charactersUseCases: CharactersUseCases): ViewModel(){
     val dataLiveData = MutableLiveData<Resource<GeneralHeaderMemory<List<CharacterMemory>>?>>()
     var page = 1
 

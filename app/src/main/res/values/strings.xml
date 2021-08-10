@@ -4,4 +4,6 @@
     <string name="view_general_news_no_data_string">No hay noticias</string>
     <string name="general_image_description">Descripción</string>
     <string name="view_general_loading_string">Cargando...</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

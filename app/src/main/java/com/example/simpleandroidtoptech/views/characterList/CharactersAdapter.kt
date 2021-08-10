@@ -1,4 +1,4 @@
-package com.example.simpleandroidtoptech.views
+package com.example.simpleandroidtoptech.views.characterList
 
 import android.view.LayoutInflater
 import android.view.View

@@ -5,7 +5,7 @@ import com.example.simpleandroidtoptech.data.entities.CharacterEntry
 import com.example.simpleandroidtoptech.data.entities.GeneralHeaderEntry
 import retrofit2.http.GET
 
-interface ApiConnection {
+interface ApiMethods {
     @GET(PATH_CHARACTERS)
     fun getCharacter(): GeneralHeaderEntry<CharacterEntry>
 }
