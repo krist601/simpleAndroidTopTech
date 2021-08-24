@@ -18,11 +18,11 @@ class CharactersViewModel @Inject constructor(private val charactersUseCases: Ch
     fun getCharacters(){
         dataLiveData.post(LiveDataStatus.LOADING)
         fun handleSuccess(response: Pair<LiveDataStatus, GeneralHeaderMemory<List<CharacterMemory>>?>) {
-            dataLiveData.post(LiveDataStatus.SUCCESS, response.second)
+            dataLiveData.postValue(Resource(LiveDataStatus.SUCCESS, response.second))
         }
         fun handleFailure(e: Exception) {
-            if(e is SocketTimeoutException) dataLiveData.post(LiveDataStatus.TIME_OUT)
-            dataLiveData.post(LiveDataStatus.ERROR)
+            if(e is SocketTimeoutException) dataLiveData.postValue(Resource(LiveDataStatus.TIME_OUT, null))
+            dataLiveData.postValue(Resource(LiveDataStatus.ERROR, null, e))
         }
         charactersUseCases.invoke(page, ::handleSuccess, ::handleFailure)
     }

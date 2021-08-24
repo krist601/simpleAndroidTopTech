@@ -14,10 +14,11 @@ class Repository @Inject constructor(private val localDataSource: LocalDataSourc
             remoteDataSource.getCharacter()
         }.onSuccess { response ->
             //ocalDataSource.setCharacters(filterString, response)
-            return Pair(com.example.core.LiveDataStatus.SUCCESS, response.toEntityMemory())
+            return Pair(LiveDataStatus.SUCCESS, response.toEntityMemory())
         }.onFailure {
-            //return Pair(com.example.core.LiveDataStatus.SUCCESS, localDataSource.getCharacters(filterString)?.toEntityMemory())
+            println("error")
+            //return Pair(LiveDataStatus.SUCCESS, localDataSource.getCharacters(filterString)?.toEntityMemory())
         }
-        return Pair(com.example.core.LiveDataStatus.ERROR, null)
+        return Pair(LiveDataStatus.ERROR, null)
     }
 }

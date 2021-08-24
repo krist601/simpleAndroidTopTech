@@ -42,13 +42,12 @@ class CharactersFragment: BaseFragment(), CharactersAdapter.OnClickItemListener 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         adapter = CharactersAdapter(mutableListOf(), this)
+        binding.listView.adapter = adapter
         binding.listView.layoutManager = (LinearLayoutManager(activity, RecyclerView.VERTICAL, false))
         binding.reloadButton.setOnClickListener { reload() }
-        viewModel
-            ?.dataLiveData
-            ?.observe(viewLifecycleOwner, {
+        viewModel?.dataLiveData?.observe(viewLifecycleOwner, {
                 it?.also { characterObserver(it.status, it.data) }
-            })
+        })
         request()
     }
 
@@ -57,7 +56,10 @@ class CharactersFragment: BaseFragment(), CharactersAdapter.OnClickItemListener 
             LiveDataStatus.LOADING -> if (viewModel?.page == 1) onLoading(binding.progressBar, binding.noDataTextView, binding.listView, binding.reloadButton)
             LiveDataStatus.SUCCESS -> {
                 if (result?.results?.isNullOrEmpty() == false) {
-                    if(viewModel?.page == 1) adapter.setData(result) else adapter.addData(result)
+                    if(viewModel?.page == 1)
+                        adapter.setData(result)
+                    else
+                        adapter.addData(result)
                     onSuccess(binding.progressBar, binding.noDataTextView, binding.listView, binding.reloadButton)
                 } else onNoData(binding.progressBar, binding.noDataTextView, binding.listView, binding.reloadButton)
             }

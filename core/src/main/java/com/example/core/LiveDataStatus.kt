@@ -9,7 +9,7 @@ enum class LiveDataStatus {
     LOADING
 }
 
-open class Resource<out T> constructor(val status: LiveDataStatus, val data: T?, val failure: Error?)
+open class Resource<out T> constructor(val status: LiveDataStatus, val data: T?, val failure: Exception? = null)
 
 @Suppress("UNCHECKED_CAST")
-fun <T> MutableLiveData<T>.post(status: LiveDataStatus, data: Any? = null, failure: Error? = null) {  }
+fun <T> MutableLiveData<T>.post(status: LiveDataStatus, data: Any? = null, failure: Exception? = null) {  }
